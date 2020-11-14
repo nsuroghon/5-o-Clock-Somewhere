@@ -1,7 +1,7 @@
 $(document).ready(function(){
    
             
-  $('select').formSelect();
+  // $('select').formSelect();
 
   function searchAlcoholicOrNot() {
     var queryURL = "https://www.thecocktaildb.com/api/json/v1/1/list.php?a=list"
@@ -18,6 +18,7 @@ $(document).ready(function(){
           x.appendChild(t);
           document.getElementById("alcoholNonalcoholSelect").appendChild(x);
         }
+        $('#alcoholNonalcoholSelect').formSelect()
     })}
 
   function searchGlass() {
@@ -27,7 +28,7 @@ $(document).ready(function(){
         url: queryURL
     }).then(function(response){
         console.log(response);
-        for (var i = 0; i < response.drinks.length; i++) {
+        for (var i = 0; i < response.drinks.length -1; i++) {
             var x = document.createElement("OPTION");
             console.log(response.drinks[i].strGlass);
             x.setAttribute("value", response.drinks[i].strGlass);
@@ -35,6 +36,7 @@ $(document).ready(function(){
             x.appendChild(t);
             document.getElementById("glassSelect").appendChild(x);
         }
+        $('#glassSelect').formSelect();
     })}
 
   function searchIngredient() {
@@ -52,6 +54,7 @@ $(document).ready(function(){
             x.appendChild(t);
             document.getElementById("ingredientSelect").appendChild(x);
         }
+        $('#ingredientSelect').formSelect()
     })}
 
   
