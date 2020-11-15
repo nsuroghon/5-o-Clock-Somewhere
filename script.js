@@ -106,6 +106,7 @@ function fetchCocktail() {
     .then(function (data) {
       alert("List of cocktails has been generated on line 108 of console");
       console.log(data);
+      fillDrinkName(data);
     });
 }
 
@@ -113,6 +114,26 @@ function fetchCocktail() {
 $("#refresh").on("click", function () {
   alert("Running fetchCocktail function");
   fetchCocktail();
-
 });
 
+//start
+//https://www.thecocktaildb.com/api/json/v1/1/lookup.php?iid=552
+
+function fillDrinkName(data){
+  var drinksArray = data.drinks;
+  console.log(drinksArray)
+  for (var i = 0;i < drinksArray.length; i++) {
+    console.log(drinksArray[i]);
+  }
+}
+
+//part 1: fetch cocktail name from api data
+
+//append name to html 
+ 
+
+//part 2: fetch img from api data
+
+//append img to html
+
+//end
