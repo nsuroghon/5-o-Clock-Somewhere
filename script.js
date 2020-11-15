@@ -129,6 +129,14 @@ function fillDrinkName(data){
     console.log(drinksArray[Math.floor(Math.random() * drinksArray.length)].strDrink);
     console.log(drinksArray[Math.floor(Math.random() * drinksArray.length)].strDrinkThumb);
 
+    let imgEl = document.querySelector("#img"+i.toString()); // the ith img tag
+    imgEl.src = drinksArray[Math.floor(Math.random() * drinksArray.length)].strDrinkThumb
+
+    let ctName = document.querySelector("#content"+i.toString());
+    $(ctName).text(drinksArray[Math.floor(Math.random() * drinksArray.length)].strDrink)
+
+    let rvName = document.querySelector("#reveal"+i.toString());
+    $(rvName).text("Recipe")
   }
 }
 //part 1: fetch cocktail name from api data
