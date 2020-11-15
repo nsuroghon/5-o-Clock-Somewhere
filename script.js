@@ -119,14 +119,18 @@ $("#refresh").on("click", function () {
 //start
 //https://www.thecocktaildb.com/api/json/v1/1/lookup.php?iid=552
 
+
 function fillDrinkName(data){
   var drinksArray = data.drinks;
-  console.log(drinksArray)
-  for (var i = 0;i < drinksArray.length; i++) {
-    console.log(drinksArray[i]);
+  // Set the foor loop to only trigger 3 Times! 
+  for (var i = 0;i < 3; i++) {
+    // inside of the index identifier, build a random number generator that will select a 
+    // random index from the array
+    console.log(drinksArray[Math.floor(Math.random() * drinksArray.length)].strDrink);
+    console.log(drinksArray[Math.floor(Math.random() * drinksArray.length)].strDrinkThumb);
+
   }
 }
-
 //part 1: fetch cocktail name from api data
 
 //append name to html 
