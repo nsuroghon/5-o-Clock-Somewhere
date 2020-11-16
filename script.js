@@ -126,26 +126,23 @@ function fillDrinkName(data){
   for (var i = 0;i < 3; i++) {
     // inside of the index identifier, build a random number generator that will select a 
     // random index from the array
+    //random drink name
     console.log(drinksArray[Math.floor(Math.random() * drinksArray.length)].strDrink);
+    //random drink img url
     console.log(drinksArray[Math.floor(Math.random() * drinksArray.length)].strDrinkThumb);
+    //random drink ID #
+    var drinkID = drinksArray[Math.floor(Math.random() * drinksArray.length)].idDrink;
+    console.log(drinkID)
 
     let imgEl = document.querySelector("#img"+i.toString()); // the ith img tag
     imgEl.src = drinksArray[Math.floor(Math.random() * drinksArray.length)].strDrinkThumb
 
     let ctName = document.querySelector("#content"+i.toString());
-    $(ctName).text(drinksArray[Math.floor(Math.random() * drinksArray.length)].strDrink)
+    $(ctName).text(drinksArray[Math.floor(Math.random() * drinksArray.length)].strDrink);
 
     let rvName = document.querySelector("#reveal"+i.toString());
     $(rvName).text("Recipe")
+      //get ingredients using idDrink
+    var requestUrl = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?iid=552"
   }
 }
-//part 1: fetch cocktail name from api data
-
-//append name to html 
- 
-
-//part 2: fetch img from api data
-
-//append img to html
-
-//end
