@@ -132,13 +132,14 @@ $('.save-drink-btn').on('click', function(e){
         cocktailNameButtons();
   });
 
-  //Function for creating elements with name of saved cocktail in list, in modal
+//Function for creating elements with name of saved cocktail in list, in modal
 function cocktailNameButtons() {
     var cocktailButtonValueArray = JSON.parse(localStorage.getItem("cocktailsArr"));
     $(".saved-list").empty();
     for (i= 0; i < cocktailButtonValueArray.length; i++){
         $(".saved-list").append($("<button class='drink-btn'>").text(cocktailButtonValueArray[i]).append($("<i class='fas fa-times remove-drink'></i>")
             .on('click', function(e){
+              //Allows the user to remove the cocktail from the list if they no longer want it saved 
               e.preventDefault();
               var previouslySearchedArr = JSON.parse(localStorage.getItem("cocktailsArr")) || [];
               var cocktailIndex = previouslySearchedArr.indexOf($(this).parent(".drink-btn").text())
@@ -193,7 +194,14 @@ function cocktailNameButtons() {
         console.log(favouriteImage)
         $(".cocktail-image").attr("src", favouriteImage);
 
-     
+
+        for(var i = 1; i<15; i++){
+          console.log(i);
+          var measureLoop = data.drinks[0].strIngredient[i];
+          console.log(measureLoop);
+        }
+
+
 
       });
   });
