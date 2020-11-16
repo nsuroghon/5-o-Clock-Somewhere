@@ -119,8 +119,7 @@ $("#refresh").on("click", function () {
 //start
 //https://www.thecocktaildb.com/api/json/v1/1/lookup.php?iid=552
 
-
-function fillDrinkName(data){
+async function fillDrinkName(data){
   var drinksArray = data.drinks;
   // Set the foor loop to only trigger 3 Times! 
   for (var i = 0;i < 3; i++) {
@@ -140,13 +139,22 @@ function fillDrinkName(data){
 
     let rvName = document.querySelector("#reveal"+i.toString());
     $(rvName).text("Recipe");
+  
+    var requestUrl = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + drinkID;
+    await fetch(requestUrl)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (dataIngredients) {
+        console.log(dataIngredients);
+      
+        var recipeArray = dataIngredients.drinks;
+        var strInstructions = recipeArray[0].strInstructions;
+        console.log(strInstructions);
+
+        const instruction = document.querySelector("#instructions"+i.toString());
+        $(instruction).text(strInstructions);
+        console.log("#instructions"+i.toString());
+      });
   }
-  var requestUrl = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + drinkID;
-  fetch(requestUrl)
-    .then(function (response) {
-      return response.json();
-    })
-    .then(function (dataIngredients) {
-      console.log(dataIngredients);
-    });
 }
