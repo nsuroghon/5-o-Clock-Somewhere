@@ -141,7 +141,12 @@ function fillDrinkName(data){
     let rvName = document.querySelector("#reveal"+i.toString());
     $(rvName).text("Recipe");
   }
-     //get ingredients using idDrink
-// var requestUrl = 
-//     “https://www.thecocktaildb.com/api/json/v1/1/lookup.php?iid=” + drinkId;
+  var requestUrl = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + drinkID;
+  fetch(requestUrl)
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (dataIngredients) {
+      console.log(dataIngredients);
+    });
 }
