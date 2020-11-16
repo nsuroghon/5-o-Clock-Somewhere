@@ -124,25 +124,24 @@ function fillDrinkName(data){
   var drinksArray = data.drinks;
   // Set the foor loop to only trigger 3 Times! 
   for (var i = 0;i < 3; i++) {
-    // inside of the index identifier, build a random number generator that will select a 
-    // random index from the array
-    //random drink name
-    console.log(drinksArray[Math.floor(Math.random() * drinksArray.length)].strDrink);
-    //random drink img url
-    console.log(drinksArray[Math.floor(Math.random() * drinksArray.length)].strDrinkThumb);
-    //random drink ID #
-    var drinkID = drinksArray[Math.floor(Math.random() * drinksArray.length)].idDrink;
+    var index = Math.floor(Math.random() * drinksArray.length)
+    var strDrink = drinksArray[index].strDrink
+    console.log(strDrink);
+    var drinkURL =drinksArray[index].strDrinkThumb; 
+    console.log(drinkURL) 
+    var drinkID = drinksArray[index].idDrink;
     console.log(drinkID)
 
     let imgEl = document.querySelector("#img"+i.toString()); // the ith img tag
-    imgEl.src = drinksArray[Math.floor(Math.random() * drinksArray.length)].strDrinkThumb
+    imgEl.src = drinkURL
 
     let ctName = document.querySelector("#content"+i.toString());
-    $(ctName).text(drinksArray[Math.floor(Math.random() * drinksArray.length)].strDrink);
+    $(ctName).text(strDrink);
 
     let rvName = document.querySelector("#reveal"+i.toString());
-    $(rvName).text("Recipe")
-      //get ingredients using idDrink
-    var requestUrl = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?iid=552"
+    $(rvName).text("Recipe");
   }
+     //get ingredients using idDrink
+// var requestUrl = 
+//     “https://www.thecocktaildb.com/api/json/v1/1/lookup.php?iid=” + drinkId;
 }
