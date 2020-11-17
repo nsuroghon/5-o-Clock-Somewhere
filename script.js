@@ -105,7 +105,8 @@ function fetchCocktail() {
     })
     .then(function (data) {
       alert("List of cocktails has been generated on line 108 of console");
-      console.log(data);
+      //console.log(data);
+      fillDrinkName(data);
     });
 }
 
@@ -113,6 +114,69 @@ function fetchCocktail() {
 $("#refresh").on("click", function () {
   alert("Running fetchCocktail function");
   fetchCocktail();
-
 });
 
+//start
+//https://www.thecocktaildb.com/api/json/v1/1/lookup.php?iid=552
+
+async function fillDrinkName(data){
+  var drinksArray = data.drinks;
+  // Set the foor loop to only trigger 3 Times! 
+  for (var i = 0;i < 3; i++) {
+    var index = Math.floor(Math.random() * drinksArray.length)
+    var strDrink = drinksArray[index].strDrink;
+    console.log(strDrink);
+    var drinkURL =drinksArray[index].strDrinkThumb; 
+    console.log(drinkURL) 
+    var drinkID = drinksArray[index].idDrink;
+    console.log(drinkID)
+
+    let imgEl = document.querySelector("#img"+i.toString()); // the ith img tag
+    imgEl.src = drinkURL
+
+    let ctName = document.querySelector("#content"+i.toString());
+    $(ctName).text(strDrink);
+
+    let rvName = document.querySelector("#reveal"+i.toString());
+    $(rvName).text("Recipe");
+  
+    // 2nd url request - instructions & ingredients measure
+    var requestUrl = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + drinkID;
+    await fetch(requestUrl)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (dataIngredients) {
+        console.log(dataIngredients);
+      
+        // instructions -->html
+        var recipeArray = dataIngredients.drinks;
+        var strInstructions = recipeArray[0].strInstructions;
+        //console.log(strInstructions);
+
+        const instruction = document.querySelector("#instructions"+i.toString());
+        $(instruction).text(strInstructions);
+        //console.log("#instructions"+i.toString());
+
+        //  recipe --> html
+
+       for (var v = 1; v <= 15; v++) {
+          var measure = eval("dataIngredients.drinks[0].strMeasure" + v);
+          var name = eval("dataIngredients.drinks[0].strIngredient" + v);
+          console.log(name + " " + measure)
+
+         if (!measure && !name) {
+           measure = ""
+           break;
+          }
+          else {
+          const recipehtml = document.querySelector("#recipe"+i.toString());
+          var li = document.createElement("li");
+          li.textContent = name + " " + measure;
+          $(recipehtml).append(li);
+          }
+       }
+      }
+      );
+  }
+}
