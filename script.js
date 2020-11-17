@@ -160,16 +160,6 @@ async function fillDrinkName(data){
 
         //  recipe --> html
 
-      //   //var measure = eval("dataIngredients.drinks[0].strMeasure1");
-      //  // var name = eval("dataIngredients.drinks[0].strIngredient1");
-      //   console.log(measure);
-      //   console.log(name);
-
-      //   const recipehtml = document.querySelector("#recipe"+i.toString());
-      //   console.log(recipehtml);
-      //   $(recipehtml).text(name + " " + measure);
-
-
        for (var v = 1; v <= 15; v++) {
           var measure = eval("dataIngredients.drinks[0].strMeasure" + v);
           var name = eval("dataIngredients.drinks[0].strIngredient" + v);
