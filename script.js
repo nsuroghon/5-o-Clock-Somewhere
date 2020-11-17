@@ -11,7 +11,7 @@ $(document).ready(function () {
       console.log(response);
       for (var i = 0; i < response.drinks.length; i++) {
         var x = document.createElement("OPTION");
-        console.log(response.drinks[i].strAlcoholic);
+        // console.log(response.drinks[i].strAlcoholic);
         x.setAttribute("value", response.drinks[i].strAlcoholic);
         var t = document.createTextNode(response.drinks[i].strAlcoholic);
         x.appendChild(t);
@@ -31,7 +31,7 @@ $(document).ready(function () {
       console.log(response);
       for (var i = 0; i < response.drinks.length - 1; i++) {
         var x = document.createElement("OPTION");
-        console.log(response.drinks[i].strGlass);
+        // console.log(response.drinks[i].strGlass);
         x.setAttribute("value", response.drinks[i].strGlass);
         var t = document.createTextNode(response.drinks[i].strGlass);
         x.appendChild(t);
@@ -51,7 +51,7 @@ $(document).ready(function () {
       console.log(response);
       for (var i = 0; i < response.drinks.length; i++) {
         var x = document.createElement("OPTION");
-        console.log(response.drinks[i].strIngredient1);
+        // console.log(response.drinks[i].strIngredient1);
         x.setAttribute("value", response.drinks[i].strIngredient1);
         var t = document.createTextNode(response.drinks[i].strIngredient1);
         x.appendChild(t);
