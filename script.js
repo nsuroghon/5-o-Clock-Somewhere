@@ -157,8 +157,6 @@ function cocktailNameButtons() {
     }
   };
 
-  cocktailNameButtons();
-
 
 
 //Fetch the cocktail from the cocktil DB and insert it into the panel and img card
