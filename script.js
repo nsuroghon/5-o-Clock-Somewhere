@@ -180,8 +180,21 @@ function cocktailNameButtons() {
         $(".modal-drink-name").text(cocktailName);
 
         //Include ingredients - needs to include all ingredients!!!!
-        var cocktailIngredients = data.drinks[0].strMeasure1 + " " + data.drinks[0].strIngredient1 + ", " + data.drinks[0].strMeasure2 + " " + data.drinks[0].strIngredient1
-        $(".modal-ingredients").text(cocktailIngredients);
+        $(".modal-ingredients").empty();
+        for (var i = 1; i <= 15; i++) {
+
+          var measure = eval("data.drinks[0].strMeasure" + i);
+          var name = eval("data.drinks[0].strIngredient" + i);
+          console.log(measure + " " + name);
+  
+          if (!measure)
+              measure = "";
+          if (name) {
+              var ingredient = $("<li>");
+              ingredient.text(measure + " " + name);
+              $(".modal-ingredients").append(ingredient);
+          }
+      }
         
         //Include instructions to make recipe
         console.log(data);
@@ -195,11 +208,6 @@ function cocktailNameButtons() {
         $(".cocktail-image").attr("src", favouriteImage);
 
 
-        for(var i = 1; i<15; i++){
-          console.log(i);
-          var measureLoop = data.drinks[0].strIngredient[i];
-          console.log(measureLoop);
-        }
 
 
 
