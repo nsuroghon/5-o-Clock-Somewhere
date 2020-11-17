@@ -105,7 +105,7 @@ function fetchCocktail() {
     })
     .then(function (data) {
       alert("List of cocktails has been generated on line 108 of console");
-      console.log(data);
+      //console.log(data);
       fillDrinkName(data);
     });
 }
@@ -140,7 +140,7 @@ async function fillDrinkName(data){
     let rvName = document.querySelector("#reveal"+i.toString());
     $(rvName).text("Recipe");
   
-  // 2nd url request - instructions & ingredients measure
+    // 2nd url request - instructions & ingredients measure
     var requestUrl = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + drinkID;
     await fetch(requestUrl)
       .then(function (response) {
@@ -152,23 +152,29 @@ async function fillDrinkName(data){
         // instructions -->html
         var recipeArray = dataIngredients.drinks;
         var strInstructions = recipeArray[0].strInstructions;
-        console.log(strInstructions);
+        //console.log(strInstructions);
 
         const instruction = document.querySelector("#instructions"+i.toString());
         $(instruction).text(strInstructions);
-        console.log("#instructions"+i.toString());
+        //console.log("#instructions"+i.toString());
 
         //  recipe --> html
-      for (var v = 1; v <= 15; v++) {
 
-        var measure = eval("recipeArray[0].strMeasure" + v);
-        var name = eval("data.drinks[0].strIngredient" + v);
-        console.log(name + " " + measure);
+        for (var v = 1; v <= 15; v++) {
+          var measure = eval("dataIngredients.drinks[0].strMeasure" + v);
+          var name = eval("dataIngredients.drinks[0].strIngredient" + v);
+          console.log(name + " " + measure)
 
-        if (!measure)
-              measure = "";
-          if (name) {
+          if (!measure) {
+            measure = ""
+          if (name){
+            const recipehtml = document.querySelector("#recipe"+(v < 3).toString());
+            recipehtml.text(name + " " + measure)
+          }
+            
+          }
+        }
       }
-      }});
+      );
   }
 }
