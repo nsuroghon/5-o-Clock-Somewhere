@@ -160,20 +160,32 @@ async function fillDrinkName(data){
 
         //  recipe --> html
 
-        for (var v = 1; v <= 15; v++) {
+      //   //var measure = eval("dataIngredients.drinks[0].strMeasure1");
+      //  // var name = eval("dataIngredients.drinks[0].strIngredient1");
+      //   console.log(measure);
+      //   console.log(name);
+
+      //   const recipehtml = document.querySelector("#recipe"+i.toString());
+      //   console.log(recipehtml);
+      //   $(recipehtml).text(name + " " + measure);
+
+
+       for (var v = 1; v <= 15; v++) {
           var measure = eval("dataIngredients.drinks[0].strMeasure" + v);
           var name = eval("dataIngredients.drinks[0].strIngredient" + v);
           console.log(name + " " + measure)
 
-          if (!measure) {
-            measure = ""
-          if (name){
-            const recipehtml = document.querySelector("#recipe"+(v < 3).toString());
-            recipehtml.text(name + " " + measure)
+         if (!measure && !name) {
+           measure = ""
+           break;
           }
-            
+          else {
+          const recipehtml = document.querySelector("#recipe"+i.toString());
+          var li = document.createElement("li");
+          li.textContent = name + " " + measure;
+          $(recipehtml).append(li);
           }
-        }
+       }
       }
       );
   }
