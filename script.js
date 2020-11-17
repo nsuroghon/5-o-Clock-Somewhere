@@ -124,7 +124,7 @@ async function fillDrinkName(data){
   // Set the foor loop to only trigger 3 Times! 
   for (var i = 0;i < 3; i++) {
     var index = Math.floor(Math.random() * drinksArray.length)
-    var strDrink = drinksArray[index].strDrink
+    var strDrink = drinksArray[index].strDrink;
     console.log(strDrink);
     var drinkURL =drinksArray[index].strDrinkThumb; 
     console.log(drinkURL) 
@@ -140,6 +140,7 @@ async function fillDrinkName(data){
     let rvName = document.querySelector("#reveal"+i.toString());
     $(rvName).text("Recipe");
   
+  // 2nd url request - instructions & ingredients measure
     var requestUrl = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + drinkID;
     await fetch(requestUrl)
       .then(function (response) {
@@ -148,6 +149,7 @@ async function fillDrinkName(data){
       .then(function (dataIngredients) {
         console.log(dataIngredients);
       
+        // instructions -->html
         var recipeArray = dataIngredients.drinks;
         var strInstructions = recipeArray[0].strInstructions;
         console.log(strInstructions);
@@ -155,6 +157,18 @@ async function fillDrinkName(data){
         const instruction = document.querySelector("#instructions"+i.toString());
         $(instruction).text(strInstructions);
         console.log("#instructions"+i.toString());
-      });
+
+        //  recipe --> html
+      for (var v = 1; v <= 15; v++) {
+
+        var measure = eval("recipeArray[0].strMeasure" + v);
+        var name = eval("data.drinks[0].strIngredient" + v);
+        console.log(name + " " + measure);
+
+        if (!measure)
+              measure = "";
+          if (name) {
+      }
+      }});
   }
 }
