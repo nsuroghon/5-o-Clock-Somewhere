@@ -1,3 +1,4 @@
+  
 var utc = [
   "Pacific/Pago_Pago",
   "Pacific/Honolulu",
@@ -38,7 +39,7 @@ var utc = [
   "America/Montreal",
   "America/New_York",
   "America/Port-au-Prince",
-  "America/Toronto",
+  // "America/Toronto",
   "America/Indianapolis",
   "America/Caracas",
   "America/Asuncion",
@@ -151,12 +152,13 @@ var utc = [
 ];
 
 
-for(var i = 0; i < utc.length;i++){
+for(var i = 0; i < utc.length; i++){
 var queryURL ="https://api.ipgeolocation.io/timezone";
 $.ajax({
 type: "GET",
 url: queryURL,
 data:{
+  'tz' : utc[i],
 
 // 'apiKey' : '1b51bf787f9348f4a954d4b7ba72ade1',
 
@@ -164,15 +166,16 @@ data:{
 
 // 'apiKey' : 'ea34208be1244f88b4f11f251e8c3d60',
 
-'apiKey' : 'fcf30077888745fcb8b2623c69d753f7',
+// 'apiKey' : 'fcf30077888745fcb8b2623c69d753f7',
 
 // 'apiKey' : '89ad4e9738f845cca4869f35f53937c6',
 
-// 'apiKey' : 'cd170e717dc84645beb6b8aec1fe93e9',
+'apiKey' : 'cd170e717dc84645beb6b8aec1fe93e9',
 
 },
 cache: false,
 }).then(function (response) {
+console.log(response);
 if((response.time_12.substring(0,2) == "05") && (response.time_12.slice(-2) == "PM")) 
 $("#insertCity").text(response.timezone);
 if((response.time_12.substring(0,2) == "05") && (response.time_12.slice(-2) == "PM"))
