@@ -1,0 +1,94 @@
+/*font-family: 'Oleo Script Swash Caps', cursive;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Great Vibes', cursive;*/
+html, body{
+    padding: 0;
+    margin:0;
+}
+
+.container{
+    max-width:100%;
+}
+
+h1{
+    font-family: 'Montserrat', sans-serif;
+    margin:0;
+}
+
+h1 span{
+    display:inline-block;
+    transform: rotate(-8deg);
+}
+
+#insertCity{
+    font-family: 'Great Vibes', cursive;
+    text-shadow: 2px 2px 2px rgba(0,0,0,0.1);
+    color: rgb(204, 244, 184);
+}
+
+.header{
+    background-color: rgb(255, 250, 228);
+    height: 200px;
+    margin: 0px;
+    width: auto;
+    padding-top: 50px;
+}
+
+.form{
+    padding-top: 60px;
+}
+
+.btn{
+    width:100%;
+    background-color: rgb(204, 244, 184);
+    color: black;
+}
+.btn:hover, .btn:active{
+    background-color: azure;
+}
+.btn:visited{
+    background-color: rgb(169, 219, 144);
+}
+
+.cards-container{
+    margin-top: 3%;
+}
+
+.card{
+    margin:38px;
+    background-image: url("assets/images/mint-72dpi-rgb.jpg");
+}
+
+.card-image img{
+    padding-top: 8px;
+}
+
+.card-content{
+    padding:10px !important;
+}
+
+.activator{
+    font-size: 1.5rem !important;
+}
+
+.card-reveal p{
+    padding: 2px;
+}
+
+.card-reveal p, .card-reveal ul{
+    margin-top: 12px;    
+}
+
+.saved-list{
+    margin-top: 12px;
+}
+
+#saved-sauce{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 50px;
+}
+
+.modal-card{
+    padding: 25px;
+    margin-top: 8px;
+}
