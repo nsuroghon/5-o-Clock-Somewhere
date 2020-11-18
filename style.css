@@ -1,0 +1,19 @@
+/*font-family: 'Lobster', cursive;
+font-family: 'Open Sans Condensed', sans-serif;
+font-family: 'Pacifico', cursive;*/ 
+
+.cards-container{
+    margin-top: 10%;
+}
+
+h1{
+    font-family: 'Open Sans Condensed', sans-serif;
+}
+
+#insertCity{
+    font-family: 'Pacifico', cursive;
+}
+
+.btn{
+    width:100%;
+}
