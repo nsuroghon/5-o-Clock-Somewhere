@@ -100,8 +100,8 @@
           </div>
 
       <div class="col s12 m9 l9 cards-container valign-wrapper">
-        <!-- <div class="container cards-container col l11"> -->
-          <div class="row valign-wrapper">
+        <div class="container cards-container col l12">
+          <div class="row">
             <div class="card small col s12 m3 l3">
               <div class="card-image waves-effect waves-block waves-light">
                 <img id="img0"
@@ -112,12 +112,12 @@
               </div>
               <div class="card-content">
                 <span id="content0" class="card-title activator grey-text text-darken-4"
-                  >Cocktail<i class="material-icons right">View Recipe</i></span
+                  ><i class="material-icons right"></i></span
                 >
               </div>
               <div class="card-reveal">
                 <span id="reveal0" class="card-title grey-text text-darken-4"
-                  >Cocktail<i class="material-icons right">close</i></span
+                  ><i class="material-icons right"></i></span
                 >
                 <p id="instructions0">
                   Fill in the form to get a tasty recipe!
@@ -137,12 +137,12 @@
               </div>
               <div class="card-content">
                 <span id="content1" class="card-title activator grey-text text-darken-4"
-                  >Cocktail<i class="material-icons right">View Recipe</i></span
+                  ><i class="material-icons right"></i></span
                 >
               </div>
               <div class="card-reveal">
                 <span id="reveal1" class="card-title grey-text text-darken-4"
-                  >Cocktail<i class="material-icons right">close</i></span
+                  ><i class="material-icons right"></i></span
                 >
                 <p id="instructions1">
                   Fill in the form to get a tasty recipe!
@@ -162,12 +162,12 @@
               </div>
               <div class="card-content">
                 <span id="content2" class="card-title activator grey-text text-darken-4"
-                  >Cocktail<i class="material-icons right">View Recipe</i></span
+                  ><i class="material-icons right"></i></span
                 >
               </div>
               <div class="card-reveal">
                 <span id="reveal2" class="card-title grey-text text-darken-4"
-                  >Cocktail<i class="material-icons right">close</i></span
+                  ><i class="material-icons right"></i></span
                 >
                 <p id="instructions2">
                   Fill in the form to get a tasty recipe!
@@ -178,7 +178,7 @@
               </div>
             </div>
           </div>
-        <!-- </div> -->
+        </div>
           </div>
 
     </div>
@@ -199,10 +199,10 @@
     <!-- Modal Structure -->
     <div id="modal1" class="modal">
       <div class="modal-content">
-        <h4 style="display:inline;">Your Saved Sauce</h4>
+        <h4 style="display:inline;" id="saved-sauce">Your Saved Sauce</h4>
         <a
         href="#!"
-        class="modal-action waves-effect modal-close waves-green btn-flat"
+        class="modal-action waves-effect modal-close waves-green btn-flat right"
         >Close</a
       >
         <div class="row">
@@ -210,20 +210,21 @@
           </div>
 
           <div>
-            <div class="col s12 m4 modal-recipe-card">
-              <div class="card-panel teal">
-                <span class="white-text modal-drink-name"
+            <div class="col s12 modal-recipe-card">
+              <div class="card modal-card">
+                <span class="black-text modal-drink-name"
                   >Cocktail Name
-                </span><span class="white-text modal-ingredients"
+                  <br>
+                </span><span class="black-text modal-ingredients"
                 >Ingredients
+                <br>
               </span>
-              <span class="white-text modal-recipe"
-                  >I am a very simple card. I am good at containing small bits
-                  of information.
+              <span class="black-text modal-recipe"
+                  >Click on your saved recipes to see one show here.
                 </span>
               </div>
             </div>
-            <div class="col s12 m4 modal-image-card">
+            <div class="col s12 modal-image-card">
               <img
                 class="cocktail-image responsive-img"
                 alt="cocktail"
