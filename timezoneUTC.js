@@ -176,7 +176,7 @@ data:{
 cache: false,
 }).then(function (response) {
 if((response.time_12.substring(0,2) == "05") && (response.time_12.slice(-2) == "PM")) 
-$("#insertCity").text(response.timezone);
+$("#insertCity").text("in " + response.timezone);
 if((response.time_12.substring(0,2) == "05") && (response.time_12.slice(-2) == "PM"))
 $("#timebox").text(response.date_time_txt);
 });
