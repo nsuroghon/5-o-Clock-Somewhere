@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  // $('select').formSelect();
+
 
   function searchAlcoholicOrNot() {
     var queryURL =
@@ -10,7 +10,7 @@ $(document).ready(function () {
     }).then(function (response) {
       for (var i = 0; i < response.drinks.length; i++) {
         var x = document.createElement("OPTION");
-        // console.log(response.drinks[i].strAlcoholic);
+        
         x.setAttribute("value", response.drinks[i].strAlcoholic);
         var t = document.createTextNode(response.drinks[i].strAlcoholic);
         x.appendChild(t);
@@ -29,7 +29,7 @@ $(document).ready(function () {
     }).then(function (response) {
       for (var i = 0; i < response.drinks.length - 1; i++) {
         var x = document.createElement("OPTION");
-        // console.log(response.drinks[i].strGlass);
+        
         x.setAttribute("value", response.drinks[i].strGlass);
         var t = document.createTextNode(response.drinks[i].strGlass);
         x.appendChild(t);
@@ -48,7 +48,7 @@ $(document).ready(function () {
     }).then(function (response) {
       for (var i = 0; i < response.drinks.length; i++) {
         var x = document.createElement("OPTION");
-        // console.log(response.drinks[i].strIngredient1);
+        
         x.setAttribute("value", response.drinks[i].strIngredient1);
         var t = document.createTextNode(response.drinks[i].strIngredient1);
         x.appendChild(t);
@@ -76,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 //Submit button event listener
 $("#search").on("click", function () {
-  alert("Running fetchCocktail function");
+  
   fetchCocktail();
 });
 
@@ -84,13 +84,13 @@ $("#search").on("click", function () {
 function fetchCocktail() {
   var isAlcohol =
     "a=" + $("#alcoholNonalcoholSelect").val().split(" ").join("_");
-  console.log(isAlcohol);
+  
 
   var glassType = "g=" + $("#glassSelect").val().split(" ").join("_");
-  console.log(glassType);
+  
 
   var ingredientType = "i=" + $("#ingredientSelect").val().split(" ").join("_");
-  console.log(ingredientType);
+  
 
   var requestUrl =
     "https://www.thecocktaildb.com/api/json/v1/1/filter.php?" +
@@ -99,7 +99,7 @@ function fetchCocktail() {
     glassType +
     "&" +
     ingredientType;
-  console.log(requestUrl);
+  
 
   fetch(requestUrl)
     .then(function (response) {
@@ -107,7 +107,7 @@ function fetchCocktail() {
     })
     .then(function (data) {
       alert("List of cocktails has been generated on line 108 of console");
-      //console.log(data);
+      
       fillDrinkName(data);
     });
 }
@@ -146,12 +146,11 @@ function cocktailNameButtons() {
               e.preventDefault();
               var previouslySearchedArr = JSON.parse(localStorage.getItem("cocktailsArr")) || [];
               var cocktailIndex = previouslySearchedArr.indexOf($(this).parent(".drink-btn").text())
-              console.log(($(this).parent(".drink-btn").text()));
-              console.log(cocktailIndex);
+              
               if (cocktailIndex > -1){
                   previouslySearchedArr.splice(cocktailIndex, 1);
               }
-              console.log(previouslySearchedArr);
+              
           
               localStorage.setItem("cocktailsArr", JSON.stringify(previouslySearchedArr));
               cocktailNameButtons();
@@ -166,10 +165,10 @@ function cocktailNameButtons() {
   $(document).on('click', '.drink-btn', function(e){
       e.preventDefault();
       var modalSavedCocktail = $(this).text();
-      console.log(modalSavedCocktail);
+      
 
       var requestUrl = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + modalSavedCocktail;
-      console.log(requestUrl);
+      
     
       fetch(requestUrl)
       .then(function (response) {
@@ -186,7 +185,7 @@ function cocktailNameButtons() {
 
           var measure = eval("data.drinks[0].strMeasure" + i);
           var name = eval("data.drinks[0].strIngredient" + i);
-          console.log(measure + " " + name);
+          
   
           if (!measure)
               measure = "";
@@ -198,14 +197,14 @@ function cocktailNameButtons() {
       }
         
         //Include instructions to make recipe
-        console.log(data);
+        
         var favouriteRecipe = data.drinks[0].strInstructions;
-        console.log(favouriteRecipe);
+        
         $(".modal-recipe").text(favouriteRecipe);
 
         //Change img src to show picture of the cocktail 
         var favouriteImage = data.drinks[0].strDrinkThumb;
-        console.log(favouriteImage)
+        
         $(".cocktail-image").attr("src", favouriteImage);
 
 
@@ -224,11 +223,11 @@ async function fillDrinkName(data){
   for (var i = 0;i < 3; i++) {
     var index = Math.floor(Math.random() * drinksArray.length)
     var strDrink = drinksArray[index].strDrink;
-    console.log(strDrink);
+    
     var drinkURL =drinksArray[index].strDrinkThumb; 
-    console.log(drinkURL) 
+    
     var drinkID = drinksArray[index].idDrink;
-    console.log(drinkID)
+    
 
     let imgEl = document.querySelector("#img"+i.toString()); // the ith img tag
     imgEl.src = drinkURL
@@ -246,23 +245,23 @@ async function fillDrinkName(data){
         return response.json();
       })
       .then(function (dataIngredients) {
-        console.log(dataIngredients);
+        
       
         // instructions -->html
         var recipeArray = dataIngredients.drinks;
         var strInstructions = recipeArray[0].strInstructions;
-        //console.log(strInstructions);
+        
 
         const instruction = document.querySelector("#instructions"+i.toString());
         $(instruction).text(strInstructions);
-        //console.log("#instructions"+i.toString());
+        
 
         //  recipe --> html
-
+         $("#recipe"+i).empty();
        for (var v = 1; v <= 15; v++) {
           var measure = eval("dataIngredients.drinks[0].strMeasure" + v);
           var name = eval("dataIngredients.drinks[0].strIngredient" + v);
-          console.log(name + " " + measure)
+
 
          if (!measure && !name) {
            measure = ""

@@ -39,7 +39,7 @@ var utc = [
   "America/Montreal",
   "America/New_York",
   "America/Port-au-Prince",
-  // "America/Toronto",
+  "America/Toronto",
   "America/Indianapolis",
   "America/Caracas",
   "America/Asuncion",
@@ -175,7 +175,6 @@ data:{
 },
 cache: false,
 }).then(function (response) {
-console.log(response);
 if((response.time_12.substring(0,2) == "05") && (response.time_12.slice(-2) == "PM")) 
 $("#insertCity").text(response.timezone);
 if((response.time_12.substring(0,2) == "05") && (response.time_12.slice(-2) == "PM"))
