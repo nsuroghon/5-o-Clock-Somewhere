@@ -1,6 +1,11 @@
-/*font-family: 'Lobster', cursive;
-font-family: 'Open Sans Condensed', sans-serif;
-font-family: 'Pacifico', cursive;*/ 
+/*font-family: 'Oleo Script Swash Caps', cursive;
+font-family: 'Montserrat', sans-serif;
+font-family: 'Great Vibes', cursive;*/
+html, body{
+    padding: 0;
+    margin:0;
+}
+
 
 .cards-container{
     margin-top: 8%;
@@ -8,17 +13,51 @@ font-family: 'Pacifico', cursive;*/
 }
 
 h1{
-    font-family: 'Open Sans Condensed', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    margin:0;
+}
+
+h1 span{
+    display:inline-block;
+    transform: rotate(-8deg);
+
 }
 
 #insertCity{
-    font-family: 'Lobster', cursive;
+    font-family: 'Great Vibes', cursive;
+    text-shadow: 2px 2px 2px rgba(0,0,0,0.1);
+    color: rgb(204, 244, 184);
+
+}
+
+.header{
+    background-color: rgb(255, 250, 228);
+    height: 150px;
+    margin: 0px;
+    width: auto;
+    padding-top: 35px;
 }
 
 .btn{
     width:100%;
+    background-color: rgb(204, 244, 184);
+    color: black;
 }
+.btn:hover{
+    background-color: azure;
+}
+.btn:active{
+    background-color: azure;
+}
+.btn:visited{
+    background-color: rgb(204, 244, 184);
+}
+
 
 .card{
     margin:15px;
+}
+
+.form{
+    padding-top: 50px;
 }

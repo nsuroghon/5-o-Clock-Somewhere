@@ -3,6 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <!--Myers Reset CSS-->
+     <link rel="stylesheet" href="reset.css" />
+    
     <!-- Compiled and minified CSS for Materliaze -->
     <link
       rel="stylesheet"
@@ -15,7 +18,8 @@
     <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAH6DwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAREAAAAAAAARERAAAAAAABEREAAAAAABERERAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAA4A8AAP7/AAD+/wAA/v8AAP7/AAD8fwAA+D8AAPAfAADwHwAAwAcAAN/3AADABwAA//8AAP//AAD//wAA" rel="icon" type="image/x-icon" />
 
     <!--Google Fonts-->
-    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat&family=Oleo+Script+Swash+Caps&display=swap" rel="stylesheet">
     <title>It's 5 o'clock somewhere!</title>
   </head>
   <body>
@@ -25,7 +29,7 @@
       <!-- get cityname to replace span, TIMEZONE API OBJECT "timeZoneId" : "America/Los_Angeles"-->
       <h1>
         It's 5 o'Clock
-        <span id="insertCity" style="color: rgb(255, 171, 16);">Somewhere</span>!
+        <span id="insertCity">Somewhere!</span>
       </h1>
     </div>
 
@@ -69,7 +73,7 @@
           <br />
     
           <button
-            class="btn waves-effect waves-light"
+            class="btn waves-effect waves-yellow"
             type="submit"
             name="action"
             id="search"
