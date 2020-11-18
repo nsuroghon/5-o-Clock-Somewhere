@@ -41,7 +41,7 @@ h1 span{
 
 .col-form{
     background-color: rgb(224, 223, 208);
-    
+
 }
 
 .btn{
@@ -57,7 +57,8 @@ h1 span{
 }
 
 .cards-container{
-    margin-top: 3%;
+    margin-top: 6%;
+    margin-left: 5% !important;
 }
 
 .main-card{
