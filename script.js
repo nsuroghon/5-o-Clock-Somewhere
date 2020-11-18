@@ -8,10 +8,8 @@ $(document).ready(function () {
       type: "GET",
       url: queryURL,
     }).then(function (response) {
-      console.log(response);
       for (var i = 0; i < response.drinks.length; i++) {
         var x = document.createElement("OPTION");
-        console.log(response.drinks[i].strAlcoholic);
         x.setAttribute("value", response.drinks[i].strAlcoholic);
         var t = document.createTextNode(response.drinks[i].strAlcoholic);
         x.appendChild(t);
@@ -28,10 +26,8 @@ $(document).ready(function () {
       type: "GET",
       url: queryURL,
     }).then(function (response) {
-      console.log(response);
       for (var i = 0; i < response.drinks.length - 1; i++) {
         var x = document.createElement("OPTION");
-        console.log(response.drinks[i].strGlass);
         x.setAttribute("value", response.drinks[i].strGlass);
         var t = document.createTextNode(response.drinks[i].strGlass);
         x.appendChild(t);
@@ -48,10 +44,8 @@ $(document).ready(function () {
       type: "GET",
       url: queryURL,
     }).then(function (response) {
-      console.log(response);
       for (var i = 0; i < response.drinks.length; i++) {
         var x = document.createElement("OPTION");
-        console.log(response.drinks[i].strIngredient1);
         x.setAttribute("value", response.drinks[i].strIngredient1);
         var t = document.createTextNode(response.drinks[i].strIngredient1);
         x.appendChild(t);
@@ -70,7 +64,12 @@ $(document).ready(function () {
 document.addEventListener("DOMContentLoaded", function () {
   var elems = document.querySelectorAll(".modal");
   var instances = M.Modal.init(elems);
+  $('.modal-trigger').modal({
+    dismissible: false
+
+  });
 });
+
 
 //Submit button event listener
 $("#search").on("click", function () {
@@ -116,7 +115,105 @@ $("#refresh").on("click", function () {
   fetchCocktail();
 });
 
-//start
+<<<<<<< HEAD
+
+
+
+//Function that saves cocktail name to local storage on click of the save button
+$('.save-drink-btn').on('click', function(e){
+        e.preventDefault();
+        var cocktailRecipeContent = $(this).siblings("span")[0].innerText.split("\n");
+        var cocktailRecipe = cocktailRecipeContent[0];
+
+        //Saving the name to local storage
+        var savedCocktailArr = JSON.parse(localStorage.getItem("cocktailsArr")) || [];
+        savedCocktailArr.push(cocktailRecipe);
+        localStorage.setItem("cocktailsArr", JSON.stringify(savedCocktailArr));
+        //Call function to populate the button list with saved drink names 
+        cocktailNameButtons();
+  });
+
+//Function for creating elements with name of saved cocktail in list, in modal
+function cocktailNameButtons() {
+    var cocktailButtonValueArray = JSON.parse(localStorage.getItem("cocktailsArr"));
+    $(".saved-list").empty();
+    for (i= 0; i < cocktailButtonValueArray.length; i++){
+        $(".saved-list").append($("<button class='drink-btn'>").text(cocktailButtonValueArray[i]).append($("<i class='fas fa-times remove-drink'></i>")
+            .on('click', function(e){
+              //Allows the user to remove the cocktail from the list if they no longer want it saved 
+              e.preventDefault();
+              var previouslySearchedArr = JSON.parse(localStorage.getItem("cocktailsArr")) || [];
+              var cocktailIndex = previouslySearchedArr.indexOf($(this).parent(".drink-btn").text())
+              console.log(($(this).parent(".drink-btn").text()));
+              console.log(cocktailIndex);
+              if (cocktailIndex > -1){
+                  previouslySearchedArr.splice(cocktailIndex, 1);
+              }
+              console.log(previouslySearchedArr);
+          
+              localStorage.setItem("cocktailsArr", JSON.stringify(previouslySearchedArr));
+              cocktailNameButtons();
+                  })
+                  ));
+    }
+  };
+
+
+
+//Fetch the cocktail from the cocktil DB and insert it into the panel and img card
+  $(document).on('click', '.drink-btn', function(e){
+      e.preventDefault();
+      var modalSavedCocktail = $(this).text();
+      console.log(modalSavedCocktail);
+
+      var requestUrl = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=" + modalSavedCocktail;
+      console.log(requestUrl);
+    
+      fetch(requestUrl)
+      .then(function (response) {
+        return response.json();
+      })
+      .then(function (data) {
+        //Change cocktail name at top of card
+        var cocktailName = data.drinks[0].strDrink;
+        $(".modal-drink-name").text(cocktailName);
+
+        //Include ingredients - needs to include all ingredients!!!!
+        $(".modal-ingredients").empty();
+        for (var i = 1; i <= 15; i++) {
+
+          var measure = eval("data.drinks[0].strMeasure" + i);
+          var name = eval("data.drinks[0].strIngredient" + i);
+          console.log(measure + " " + name);
+  
+          if (!measure)
+              measure = "";
+          if (name) {
+              var ingredient = $("<li>");
+              ingredient.text(measure + " " + name);
+              $(".modal-ingredients").append(ingredient);
+          }
+      }
+        
+        //Include instructions to make recipe
+        console.log(data);
+        var favouriteRecipe = data.drinks[0].strInstructions;
+        console.log(favouriteRecipe);
+        $(".modal-recipe").text(favouriteRecipe);
+
+        //Change img src to show picture of the cocktail 
+        var favouriteImage = data.drinks[0].strDrinkThumb;
+        console.log(favouriteImage)
+        $(".cocktail-image").attr("src", favouriteImage);
+
+
+
+
+
+      });
+  });
+
+  //start
 //https://www.thecocktaildb.com/api/json/v1/1/lookup.php?iid=552
 
 async function fillDrinkName(data){
@@ -180,3 +277,5 @@ async function fillDrinkName(data){
       );
   }
 }
+
+
