@@ -32,10 +32,14 @@ h1 span{
 
 .header{
     background-color: rgb(255, 250, 228);
-    height: 150px;
+    height: 200px;
     margin: 0px;
     width: auto;
-    padding-top: 35px;
+    padding-top: 50px;
+}
+
+.form{
+    padding-top: 60px;
 }
 
 .btn{
@@ -53,11 +57,23 @@ h1 span{
     background-color: rgb(204, 244, 184);
 }
 
-
 .card{
     margin:15px;
+    background-image: url("assets/images/mint-72dpi-rgb.jpg");
 }
 
-.form{
-    padding-top: 50px;
+.card-image img{
+    padding-top: 8px;
+}
+
+.card-reveal p{
+    padding: 2px;
+}
+
+.card-reveal p{
+    margin-top: 12px;    
+}
+
+.card-reveal ul{
+    margin-top: 12px;    
 }
