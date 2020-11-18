@@ -237,7 +237,7 @@ async function fillDrinkName(data){
     $(ctName).text(strDrink);
 
     let rvName = document.querySelector("#reveal"+i.toString());
-    $(rvName).text("Recipe");
+    $(rvName).text(strDrink);
   
     // 2nd url request - instructions & ingredients measure
     var requestUrl = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=" + drinkID;
