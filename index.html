@@ -10,7 +10,11 @@
     />
     <!--Group CSS Stylesheet-->
     <link rel="stylesheet" href="style.css" />
-    <title>Document</title>
+
+    <!--Favicon-->
+    <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAH6DwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAREAAAAAAAARERAAAAAAABEREAAAAAABERERAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAA4A8AAP7/AAD+/wAA/v8AAP7/AAD8fwAA+D8AAPAfAADwHwAAwAcAAN/3AADABwAA//8AAP//AAD//wAA" rel="icon" type="image/x-icon" />
+
+    <title>It's 5 o'clock somewhere!</title>
   </head>
   <body>
     <!--Time Zone Container-->
@@ -83,41 +87,43 @@
       <div class="row">
         <div class="card small col s4">
           <div class="card-image waves-effect waves-block waves-light">
-            <img
+            <img id="img0"
               alt="margarita"
               class="activator"
               src="https://www.thecocktaildb.com/images/media/drink/5noda61589575158.jpg"
             />
           </div>
           <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4"
+            <span id="content0" class="card-title activator grey-text text-darken-4"
               >Margarita<i class="material-icons right">View Recipe</i></span
             >
           </div>
           <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4"
+            <span id="reveal0" class="card-title grey-text text-darken-4"
               >Margarita<i class="material-icons right">close</i></span
             >
-            <p>
+            <p id="instructions0">
               "Rub the rim of the glass with the lime slice to make the salt
               stick to it. Take care to moisten only the outer rim and sprinkle
               the salt on it. The salt should present to the lips of the imbiber
               and never mix into the cocktail. Shake the other ingredients with
               ice, then carefully pour into the glass."
             </p>
+            <ul id="recipe0"></ul>
+
             <a class="waves-effect waves-light btn save-drink-btn">Save</a>
           </div>
         </div>
         <div class="card small col s4">
           <div class="card-image waves-effect waves-block waves-light">
-            <img
+            <img id="img1"
               alt="margarita"
               class="activator"
               src="https://www.thecocktaildb.com/images/media/drink/5noda61589575158.jpg"
             />
           </div>
           <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4"
+            <span id="content1" class="card-title activator grey-text text-darken-4"
               >Margarita<i class="material-icons right">View Recipe</i></span
             >
           </div>
@@ -125,40 +131,44 @@
             <span class="card-title grey-text text-darken-4"
               >Mojito<i class="material-icons right">close</i></span
             >
-            <p>
+            <p id="instructions1">
               "Rub the rim of the glass with the lime slice to make the salt
               stick to it. Take care to moisten only the outer rim and sprinkle
               the salt on it. The salt should present to the lips of the imbiber
               and never mix into the cocktail. Shake the other ingredients with
               ice, then carefully pour into the glass."
             </p>
+            <ul id="recipe1"></ul>
+
             <a class="waves-effect waves-light btn save-drink-btn">Save</a>
           </div>
         </div>
         <div class="card small col s4">
           <div class="card-image waves-effect waves-block waves-light">
-            <img
+            <img id="img2"
               alt="margarita"
               class="activator"
               src="https://www.thecocktaildb.com/images/media/drink/5noda61589575158.jpg"
             />
           </div>
           <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4"
+            <span id="content2" class="card-title activator grey-text text-darken-4"
               >Margarita<i class="material-icons right">View Recipe</i></span
             >
           </div>
           <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4"
+            <span id="reveal2" class="card-title grey-text text-darken-4"
               >Margarita<i class="material-icons right">close</i></span
             >
-            <p>
+            <p id="instructions2">
               "Rub the rim of the glass with the lime slice to make the salt
               stick to it. Take care to moisten only the outer rim and sprinkle
               the salt on it. The salt should present to the lips of the imbiber
               and never mix into the cocktail. Shake the other ingredients with
               ice, then carefully pour into the glass!"
             </p>
+            <ul id="recipe2"></ul>
+
             <a class="waves-effect waves-light btn save-drink-btn">Save</a>
           </div>
         </div>
@@ -177,19 +187,15 @@
     <!-- Modal Structure -->
     <div id="modal1" class="modal">
       <div class="modal-content">
-        <h4>Your Saved Sauce</h4>
+        <h4 style="display:inline;">Your Saved Sauce</h4>
+        <a
+        href="#!"
+        class="modal-action waves-effect modal-close waves-green btn-flat"
+        >Close</a
+      >
         <div class="row">
           <div class="col s12 m4 saved-list">
             <!--Set the height of this div and apply wrap  if number of saved exceed set height so that they buttons don't continue take up all the space-->
-            <button class="btn drink-btn col s12 waves-effect waves-red">
-              Saved Drink 1
-            </button>
-            <button class="drink-btn col s12">Saved Drink 1</button>
-            <button class="drink-btn col s12">Saved Drink 1</button>
-            <button class="drink-btn col s12">Saved Drink 1</button>
-            <button class="drink-btn col s12">Saved Drink 1</button>
-            <button class="drink-btn col s12">Saved Drink 1</button>
-            <button class="drink-btn col s12">Saved Drink 1</button>
           </div>
 
           <div>
@@ -212,11 +218,7 @@
         </div>
       </div>
       <div class="modal-footer">
-        <a
-          href="#!"
-          class="modal-action modal-close waves-effect waves-green btn-flat"
-          >Close</a
-        >
+
       </div>
     </div>
 
