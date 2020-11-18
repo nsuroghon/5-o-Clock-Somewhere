@@ -106,7 +106,6 @@ function fetchCocktail() {
       return response.json();
     })
     .then(function (data) {
-      alert("List of cocktails has been generated on line 108 of console");
       
       fillDrinkName(data);
     });
@@ -114,7 +113,6 @@ function fetchCocktail() {
 
 //Refresh button event listener
 $("#refresh").on("click", function () {
-  alert("Running fetchCocktail function");
   fetchCocktail();
 });
 
@@ -158,6 +156,7 @@ function cocktailNameButtons() {
                   ));
     }
   };
+  cocktailNameButtons();
 
 
 
