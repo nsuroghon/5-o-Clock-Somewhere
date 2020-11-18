@@ -3,7 +3,8 @@ font-family: 'Open Sans Condensed', sans-serif;
 font-family: 'Pacifico', cursive;*/ 
 
 .cards-container{
-    margin-top: 10%;
+    margin-top: 8%;
+    
 }
 
 h1{
@@ -11,9 +12,13 @@ h1{
 }
 
 #insertCity{
-    font-family: 'Pacifico', cursive;
+    font-family: 'Lobster', cursive;
 }
 
 .btn{
     width:100%;
+}
+
+.card{
+    margin:15px;
 }
