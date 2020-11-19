@@ -12,9 +12,9 @@ This application is designed to take the users cocktail taste preference and ret
  
 
 ### Screenshots
-![Screenshot of Cocktail Generator.](/assets/images/Screenshot1.png "Screenshot of Cocktail Generator")
-![Screenshot of Cocktail Generator.](/assets/images/Screenshot2.png "Screenshot of Cocktail Generator.")
-![Screenshot of Cocktail Generator.](/assets/images/Screenshot3.png "Screenshot of Cocktail Generator.")
+![Screenshot of Cocktail Generator.](/assets/images/screenshot1.png "Screenshot of Cocktail Generator")
+![Screenshot of Cocktail Generator.](/assets/images/screenshot2.png "Screenshot of Cocktail Generator.")
+![Screenshot of Cocktail Generator.](/assets/images/screenshot3.png "Screenshot of Cocktail Generator.")
 
 ## URL
 The live project can be viewed here: https://nsuroghon.github.io/5-o-Clock-Somewhere/
