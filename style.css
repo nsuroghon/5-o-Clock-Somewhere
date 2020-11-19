@@ -36,6 +36,12 @@ h1 span{
 
 .form{
     padding-top: 60px;
+    padding-bottom: 30px;
+}
+
+.col-form{
+    background-color: rgb(224, 223, 208);
+
 }
 
 .btn{
@@ -51,12 +57,18 @@ h1 span{
 }
 
 .cards-container{
-    margin-top: 3%;
+    margin-top: 6%;
+    margin-left: 5% !important;
 }
 
-.card{
-    margin:38px;
+.main-card{
+    margin:35px;
     background-image: url("assets/images/mint-72dpi-rgb.jpg");
+}
+
+.modal-card{
+    background-image: url("assets/images/mint-72dpi-rgb.jpg");
+
 }
 
 .card-image img{
