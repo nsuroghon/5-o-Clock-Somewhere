@@ -160,7 +160,7 @@ url: queryURL,
 data:{
   'tz' : utc[i],
 
-// 'apiKey' : '1b51bf787f9348f4a954d4b7ba72ade1',
+'apiKey' : '1b51bf787f9348f4a954d4b7ba72ade1',
 
 // 'apiKey' : 'af77de5fb3e042849edd4c67482147f8',
 
@@ -170,7 +170,7 @@ data:{
 
 // 'apiKey' : '89ad4e9738f845cca4869f35f53937c6',
 
-'apiKey' : 'cd170e717dc84645beb6b8aec1fe93e9',
+// 'apiKey' : 'cd170e717dc84645beb6b8aec1fe93e9',
 
 },
 cache: false,
