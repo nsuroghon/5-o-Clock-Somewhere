@@ -3,6 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+     <!--Myers Reset CSS-->
+     <link rel="stylesheet" href="reset.css" />
+    
     <!-- Compiled and minified CSS for Materliaze -->
     <link
       rel="stylesheet"
@@ -14,196 +17,204 @@
     <!--Favicon-->
     <link href="data:image/x-icon;base64,AAABAAEAEBAQAAEABAAoAQAAFgAAACgAAAAQAAAAIAAAAAEABAAAAAAAgAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAH6DwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAREAAAAAAAARERAAAAAAABEREAAAAAABERERAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD//wAA4A8AAP7/AAD+/wAA/v8AAP7/AAD8fwAA+D8AAPAfAADwHwAAwAcAAN/3AADABwAA//8AAP//AAD//wAA" rel="icon" type="image/x-icon" />
 
+    <!--Google Fonts-->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat&family=Oleo+Script+Swash+Caps&display=swap" rel="stylesheet">
     <title>It's 5 o'clock somewhere!</title>
   </head>
   <body>
+
     <!--Time Zone Container-->
-    <div class="container">
+    <div class="container header center">
       <!-- get cityname to replace span, TIMEZONE API OBJECT "timeZoneId" : "America/Los_Angeles"-->
       <h1>
         It's 5 o'Clock
-        <span id="insertCity" style="color: rebeccapurple;">Somewhere</span>!
+        <span id="insertCity">Somewhere!</span>
       </h1>
-      <!-- date now()-->
-      <p><span id="timebox">Wed Nov 11 2020 17:18:13 GMT-0500 (EST)</span></p>
     </div>
 
-    <div class="container">
-      <div class="row">
-        <div class="input-field col s4 m4 l4">
-          <select id="alcoholNonalcoholSelect">
-            <option value="" disabled selected>Choose your option</option>
-          </select>
-          <label>Select Alcoholic/Non-alcoholic</label>
+    <!-- Page Layout here -->
+    <div class="row">
+
+      <div class="col s12 m3 l3 col-form">
+        <div class="container form">
+          <div class="row">
+            <div class="input-field col s12 m12 l12">
+              <select id="alcoholNonalcoholSelect">
+                <option value="" disabled selected>Choose your option</option>
+              </select>
+              <label>Select Alcoholic/Non-alcoholic</label>
+            </div>
+          </div>
+    
+          <br /><br />
+    
+          <div class="row">
+            <div class="input-field col s12 m12 l12">
+              <select id="glassSelect">
+                <option value="" disabled selected>Choose your option</option>
+              </select>
+              <label>Select Glass</label>
+            </div>
+          </div>
+    
+          <br /><br />
+    
+          <div class="row">
+            <div class="input-field col s12 m12 l12">
+              <select id="ingredientSelect">
+                <option value="" disabled selected>Choose your option</option>
+              </select>
+              <label>Select Ingredient</label>
+            </div>
+          </div>
+    
+          <br />
+          <br />
+    
+          <button
+            class="btn waves-effect waves-yellow"
+            type="submit"
+            name="action"
+            id="search"
+          >
+            Search
+          </button>
+          <br />
+          <br />
+          <button
+            class="btn waves-effect waves-light"
+            type="submit"
+            name="action"
+            id="refresh"
+          >
+            Refresh
+          </button>
+    
+           <!-- Modal Trigger -->
+           <br>
+           <br>
+          <a class="waves-effect waves-yellow btn modal-trigger" href="#modal1">
+            Favourites</a>
         </div>
-      </div>
+          </div>
 
-      <br /><br />
-
-      <div class="row">
-        <div class="input-field col s4 m4 l4">
-          <select id="glassSelect">
-            <option value="" disabled selected>Choose your option</option>
-          </select>
-          <label>Select Glass</label>
+      <div class="col s12 m9 l9 cards-container-col valign-wrapper">
+        <div class="container cards-container col l12">
+          <div class="row">
+            <div class="card small col s12 m3 l3 main-card">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img id="img0"
+                  alt="margarita"
+                  class="activator"
+                  src="https://www.thecocktaildb.com/images/media/drink/5noda61589575158.jpg"
+                />
+              </div>
+              <div class="card-content">
+                <span id="content0" class="card-title activator grey-text text-darken-4"
+                  ><i class="material-icons right"></i></span
+                >
+              </div>
+              <div class="card-reveal">
+                <span id="reveal0" class="card-title grey-text text-darken-4"
+                  ><i class="material-icons right"></i></span
+                >
+                <p id="instructions0">
+                  Fill in the form to get a tasty recipe!
+                </p>
+                <ul id="recipe0"></ul>
+                <br>
+                <a class="waves-effect waves-light btn save-drink-btn">Save</a>
+              </div>
+            </div>
+            <div class="card small col s12 m3 l3 main-card">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img id="img1"
+                  alt="margarita"
+                  class="activator"
+                  src="https://www.thecocktaildb.com/images/media/drink/5noda61589575158.jpg"
+                />
+              </div>
+              <div class="card-content">
+                <span id="content1" class="card-title activator grey-text text-darken-4"
+                  ><i class="material-icons right"></i></span
+                >
+              </div>
+              <div class="card-reveal">
+                <span id="reveal1" class="card-title grey-text text-darken-4"
+                  ><i class="material-icons right"></i></span
+                >
+                <p id="instructions1">
+                  Fill in the form to get a tasty recipe!
+                </p>
+                <ul id="recipe1"></ul>
+                <br>
+                <a class="waves-effect waves-light btn save-drink-btn">Save</a>
+              </div>
+            </div>
+            <div class="card small col s12 m3 l3 main-card">
+              <div class="card-image waves-effect waves-block waves-light">
+                <img id="img2"
+                  alt="margarita"
+                  class="activator"
+                  src="https://www.thecocktaildb.com/images/media/drink/5noda61589575158.jpg"
+                />
+              </div>
+              <div class="card-content">
+                <span id="content2" class="card-title activator grey-text text-darken-4"
+                  ><i class="material-icons right"></i></span
+                >
+              </div>
+              <div class="card-reveal">
+                <span id="reveal2" class="card-title grey-text text-darken-4"
+                  ><i class="material-icons right"></i></span
+                >
+                <p id="instructions2">
+                  Fill in the form to get a tasty recipe!
+                </p>
+                <ul id="recipe2"></ul>
+                <br>
+                <a class="waves-effect waves-light btn save-drink-btn">Save</a>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
+          </div>
 
-      <br /><br />
-
-      <div class="row">
-        <div class="input-field col s4 m4 l4">
-          <select id="ingredientSelect">
-            <option value="" disabled selected>Choose your option</option>
-          </select>
-          <label>Select Ingredient</label>
-        </div>
-      </div>
-
-      <br />
-      <br />
-
-      <button
-        class="btn waves-effect waves-light"
-        type="submit"
-        name="action"
-        id="search"
-      >
-        Search
-      </button>
-      <br />
-      <br />
-      <button
-        class="btn waves-effect waves-light"
-        type="submit"
-        name="action"
-        id="refresh"
-      >
-        Refresh
-      </button>
     </div>
 
-    <div class="container">
-      <div class="row">
-        <div class="card small col s4">
-          <div class="card-image waves-effect waves-block waves-light">
-            <img id="img0"
-              alt="margarita"
-              class="activator"
-              src="https://www.thecocktaildb.com/images/media/drink/5noda61589575158.jpg"
-            />
-          </div>
-          <div class="card-content">
-            <span id="content0" class="card-title activator grey-text text-darken-4"
-              >Margarita<i class="material-icons right">View Recipe</i></span
-            >
-          </div>
-          <div class="card-reveal">
-            <span id="reveal0" class="card-title grey-text text-darken-4"
-              >Margarita<i class="material-icons right">close</i></span
-            >
-            <p id="instructions0">
-              "Rub the rim of the glass with the lime slice to make the salt
-              stick to it. Take care to moisten only the outer rim and sprinkle
-              the salt on it. The salt should present to the lips of the imbiber
-              and never mix into the cocktail. Shake the other ingredients with
-              ice, then carefully pour into the glass."
-            </p>
-            <ul id="recipe0"></ul>
-
-            <a class="waves-effect waves-light btn save-drink-btn">Save</a>
-          </div>
-        </div>
-        <div class="card small col s4">
-          <div class="card-image waves-effect waves-block waves-light">
-            <img id="img1"
-              alt="margarita"
-              class="activator"
-              src="https://www.thecocktaildb.com/images/media/drink/5noda61589575158.jpg"
-            />
-          </div>
-          <div class="card-content">
-            <span id="content1" class="card-title activator grey-text text-darken-4"
-              >Margarita<i class="material-icons right">View Recipe</i></span
-            >
-          </div>
-          <div class="card-reveal">
-            <span id="reveal1" class="card-title grey-text text-darken-4"
-              >Margarita<i class="material-icons right">close</i></span
-            >
-            <p id="instructions1">
-              "Rub the rim of the glass with the lime slice to make the salt
-              stick to it. Take care to moisten only the outer rim and sprinkle
-              the salt on it. The salt should present to the lips of the imbiber
-              and never mix into the cocktail. Shake the other ingredients with
-              ice, then carefully pour into the glass."
-            </p>
-            <ul id="recipe1"></ul>
-
-            <a class="waves-effect waves-light btn save-drink-btn">Save</a>
-          </div>
-        </div>
-        <div class="card small col s4">
-          <div class="card-image waves-effect waves-block waves-light">
-            <img id="img2"
-              alt="margarita"
-              class="activator"
-              src="https://www.thecocktaildb.com/images/media/drink/5noda61589575158.jpg"
-            />
-          </div>
-          <div class="card-content">
-            <span id="content2" class="card-title activator grey-text text-darken-4"
-              >Margarita<i class="material-icons right">View Recipe</i></span
-            >
-          </div>
-          <div class="card-reveal">
-            <span id="reveal2" class="card-title grey-text text-darken-4"
-              >Margarita<i class="material-icons right">close</i></span
-            >
-            <p id="instructions2">
-              "Rub the rim of the glass with the lime slice to make the salt
-              stick to it. Take care to moisten only the outer rim and sprinkle
-              the salt on it. The salt should present to the lips of the imbiber
-              and never mix into the cocktail. Shake the other ingredients with
-              ice, then carefully pour into the glass!"
-            </p>
-            <ul id="recipe2"></ul>
-
-            <a class="waves-effect waves-light btn save-drink-btn">Save</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
+   
     <!--Modal-->
     <div class="row section">
       <div class="col">
-        <!-- Modal Trigger -->
-        <a class="waves-effect waves-yellow btn modal-trigger" href="#modal1"
-          >Favourites</a
-        >
+
       </div>
     </div>
     <!-- Modal Structure -->
     <div id="modal1" class="modal">
       <div class="modal-content">
-        <h4 style="display:inline;">Your Saved Sauce</h4>
+        <h4 style="display:inline;" id="saved-sauce">Your Saved Sauce</h4>
         <a
         href="#!"
-        class="modal-action waves-effect modal-close waves-green btn-flat"
+        class="modal-action waves-effect modal-close waves-green btn-flat right"
         >Close</a
       >
         <div class="row">
           <div class="col s12 m4 saved-list">
-            <!--Set the height of this div and apply wrap  if number of saved exceed set height so that they buttons don't continue take up all the space-->
           </div>
 
           <div>
             <div class="col s12 m4 modal-recipe-card">
-              <div class="card-panel teal">
-                <span class="white-text modal-recipe"
-                  >I am a very simple card. I am good at containing small bits
-                  of information.
+              <div class="card modal-card">
+                <span class="black-text modal-drink-name"
+                  >Cocktail Name
+                  <br>
+                </span><span class="black-text modal-ingredients"
+                >Ingredients
+                <br>
+              </span>
+              <span class="black-text modal-recipe"
+                  >Click on your saved recipes to see one show here.
                 </span>
               </div>
             </div>

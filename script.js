@@ -106,7 +106,6 @@ function fetchCocktail() {
       return response.json();
     })
     .then(function (data) {
-      alert("List of cocktails has been generated on line 108 of console");
       
       fillDrinkName(data);
     });
@@ -114,7 +113,6 @@ function fetchCocktail() {
 
 //Refresh button event listener
 $("#refresh").on("click", function () {
-  alert("Running fetchCocktail function");
   fetchCocktail();
 });
 
@@ -140,7 +138,7 @@ function cocktailNameButtons() {
     var cocktailButtonValueArray = JSON.parse(localStorage.getItem("cocktailsArr"));
     $(".saved-list").empty();
     for (i= 0; i < cocktailButtonValueArray.length; i++){
-        $(".saved-list").append($("<button class='drink-btn'>").text(cocktailButtonValueArray[i]).append($("<i class='fas fa-times remove-drink'></i>")
+        $(".saved-list").append($("<button class='drink-btn btn'>").text(cocktailButtonValueArray[i]).append($("<i class='fas fa-times remove-drink right'></i>")
             .on('click', function(e){
               //Allows the user to remove the cocktail from the list if they no longer want it saved 
               e.preventDefault();
@@ -158,6 +156,7 @@ function cocktailNameButtons() {
                   ));
     }
   };
+  cocktailNameButtons();
 
 
 
