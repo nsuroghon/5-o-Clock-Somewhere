@@ -32,3 +32,4 @@ This source code is available to all and the project is licensed under the MIT L
 ![GitHub](https://img.shields.io/github/license/mcilhaggis/responsive-portfolio)
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/mcilhaggis/responsive-portfolio)
+
